@@ -65,5 +65,14 @@ void swap(int* a, int* b)
 
 void printEvenValues(int* a)
 {
-
+	a++;
+	cout << *a << endl;
+	a += 2;
+	cout << *a << endl;
+	a += 2;
+	cout << *a << endl;
+	a += 2;
+	cout << *a << endl;
+	a += 2;
+	cout << *a << endl;
 }
