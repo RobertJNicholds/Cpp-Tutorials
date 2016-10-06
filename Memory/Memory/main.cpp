@@ -65,18 +65,21 @@ struct node
 };
 
 struct node* root = NULL;
+int tree_count = 0;
 
 void insert_integer(struct node** tree, int value);
 void print_tree(struct node* tree);
 void terminate_tree(struct node* tree);
+void get_size(struct node* tree);
 
 int main()
-{
-	root = NULL;
+{		
 	insert_integer(&root, 10);
 	insert_integer(&root, 6);
 	insert_integer(&root, 14);
 	insert_integer(&root, 4);
+	get_size(root);
+	cout << tree_count << endl;
 
 	print_tree(root);
 	terminate_tree(root);
@@ -115,12 +118,13 @@ void print_tree(struct node* tree)
 		{
 			print_tree(tree->left);
 		}
+
+		cout << tree->value << endl;
+
 		if (tree->right != NULL)
 		{
 			print_tree(tree->right);
 		}
-
-		cout << tree->value << endl;
 	}
 }
 
@@ -132,6 +136,16 @@ void terminate_tree(struct node* tree)
 		terminate_tree(tree->right);
 
 	delete tree;	
+}
+
+void get_size(struct node* tree)
+{
+	if (tree->left != NULL)
+		get_size(tree->left);
+	if (tree->right != NULL)
+		get_size(tree->right);
+
+	tree_count++;
 }
 
 
