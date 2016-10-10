@@ -78,13 +78,11 @@ int main()
 	insert_integer(&root, 6);
 	insert_integer(&root, 14);
 	insert_integer(&root, 4);
-	get_size(root);
-	cout << tree_count << endl;
-
 	print_tree(root);
 	terminate_tree(root);
 
 	int x;
+	cout << "Enter a value to exit" << endl;
 	cin >> x;
 	return 0;
 }
