@@ -48,6 +48,8 @@ int main(void) {
 	tree.insert_integer(2);
 	tree.insert_integer(5);
 	tree.insert_integer(10);
+	if (tree.contains_value(5))
+		cout << "found 5" << endl;
 
 	tree.print_tree();
 
