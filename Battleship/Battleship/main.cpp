@@ -23,10 +23,11 @@ int main()
 	srand(static_cast<unsigned int>(time(NULL)));
 	int num_of_ships = 2;
 	create_grid(num_of_ships, grid);
+
 	int guess_count = 5;
 
 	while (guess_count > 0)
-	{		
+	{	
 		print_guesses();
 		cout << endl;
 		cout << "Number of guesses remaining = " << guess_count << endl;
