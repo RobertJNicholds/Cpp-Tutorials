@@ -1,15 +1,24 @@
 #pragma once
+#include <iostream>
 class Battleship
 {
 public:
-	Battleship(int hps);
+	Battleship();
 	~Battleship();
 
-	int get_hitpoints();
-	int get_score();
+	int get_hitpoints();	
+	void set_location(const int x, const int y, const int idx);
+	bool check_location(const int x, const int y);
 
 private:
-	int hitpoints;
-	int score;
+
+	struct Point
+	{
+		int x;
+		int y;
+	};
+
+	int hitpoints;	
+	Point locations[3];
 };
 
