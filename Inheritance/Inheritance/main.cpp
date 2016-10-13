@@ -2,6 +2,7 @@
 #include "Enemy.h"
 #include "Boss.h"
 #include "BinaryTree.h"
+#include "Vector3.h"
 
 using namespace std;
 
@@ -47,9 +48,44 @@ int main(void) {
 
 	some_function(*ae);
 
-	BinaryTree<int, ComparableObject<int>> tree;
-	tree.insert_integer(2);
-	tree.print_tree();
+	BinaryTree<char> char_tree;
+	
+	char_tree.insert_value('e');
+	char_tree.insert_value('d');
+	char_tree.insert_value('c');
+	char_tree.insert_value('a');
+	
+	cout << "Value stored in char_tree are " << endl;
+	char_tree.print_tree();
+	char_tree.destroy_tree();
+
+	cout << endl;
+
+	BinaryTree<double> double_tree;	
+
+	double_tree.insert_value(6.0);
+	double_tree.insert_value(2.0);
+	double_tree.insert_value(10.0);
+	double_tree.insert_value(7.6);
+
+	cout << "Value stored in double_tree are " << endl;
+	double_tree.print_tree();
+	double_tree.destroy_tree();
+
+	BinaryTree<Vector3<int>> vector3_tree;
+
+	Vector3<int> vector(5, 6, 10);
+	cout << vector.Magnitude() << endl;
+	
+	vector3_tree.insert_value(Vector3<int>(10, 1, 3));
+	vector3_tree.insert_value(Vector3<int>(15, 2, 6));
+	vector3_tree.insert_value(Vector3<int>(5, 6, 8));
+	vector3_tree.insert_value(Vector3<int>(1, 1, 1));
+
+	cout << "Value stored in Vector3_tree are " << endl;
+	vector3_tree.print_tree();
+	vector3_tree.destroy_tree();
+	cout << endl;
 
 	delete ae;
 	ae = NULL;
