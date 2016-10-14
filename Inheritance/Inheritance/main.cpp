@@ -2,7 +2,9 @@
 #include "Enemy.h"
 #include "Boss.h"
 #include "BinaryTree.h"
+#include "Matrix.h"
 #include "Vector3.h"
+#include "stack.h"
 
 using namespace std;
 
@@ -41,6 +43,7 @@ int main(void) {
 		cout << "Enemy " << i << " Hit Points = " << enemies[i]->get_hit_points() << endl;
 	}
 
+	cout << armed_enemies[0] << endl;
 
 	cout << "Boss armour = " << boss->getArmour() << "\n";
 
@@ -72,20 +75,45 @@ int main(void) {
 	double_tree.print_tree();
 	double_tree.destroy_tree();
 
-	BinaryTree<Vector3<int>> vector3_tree;
+	BinaryTree<Vector3<double>> vector3_tree;
 
-	Vector3<int> vector(5, 6, 10);
-	cout << vector.Magnitude() << endl;
 	
-	vector3_tree.insert_value(Vector3<int>(10, 1, 3));
-	vector3_tree.insert_value(Vector3<int>(15, 2, 6));
-	vector3_tree.insert_value(Vector3<int>(5, 6, 8));
-	vector3_tree.insert_value(Vector3<int>(1, 1, 1));
+	vector3_tree.insert_value(Vector3<double>(10.0, 1.0, 3.0));
+	vector3_tree.insert_value(Vector3<double>(15.5, 2.0, 6.0));
+	vector3_tree.insert_value(Vector3<double>(5.0, 6.0, 8.0));
+	vector3_tree.insert_value(Vector3<double>(1.0, 1.0, 1.0));
 
 	cout << "Value stored in Vector3_tree are " << endl;
 	vector3_tree.print_tree();
 	vector3_tree.destroy_tree();
 	cout << endl;
+
+	Vector3<int> vec1(1, 1, 1);
+	Vector3<int> vec2(2, 3, 4);	
+	
+	cout << vec1.Dot(vec2) << endl;	
+	cout << vec1.Cross(vec2) << endl;
+	cout << vec1 * 5 << endl;
+
+	cout << (vec1 == vec2) << endl;
+	cout << vec1 + vec2 << endl;
+	vec1 = vec2;
+	cout << vec1 << endl;
+
+	stack<int> ints;
+
+	ints.push(5);
+	ints.push(6);
+	ints.push(2);
+
+	cout << ints.get_size() << endl;
+	ints.pop();
+	cout << ints.get_size() << endl;
+
+	Matrix<int> test_mat1;
+	Matrix<int> test_mat2;
+
+	test_mat1 = test_mat1 + test_mat2;
 
 	delete ae;
 	ae = NULL;

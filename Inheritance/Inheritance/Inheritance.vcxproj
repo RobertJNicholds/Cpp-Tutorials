@@ -119,7 +119,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArmedEnemy.cpp" />
-    <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="main.cpp" />
@@ -130,6 +129,8 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Comparable.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="stack.h" />
     <ClInclude Include="Vector3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

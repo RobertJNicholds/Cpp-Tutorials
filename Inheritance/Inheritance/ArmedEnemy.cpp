@@ -1,6 +1,6 @@
 #include "ArmedEnemy.h"
 
-ArmedEnemy::ArmedEnemy() : Enemy(3)
+ArmedEnemy::ArmedEnemy() : Enemy(3), ammo_level(0)
 {
 
 }
@@ -28,4 +28,11 @@ void ArmedEnemy::shoot() {
 	{
 		cout << "out of ammo\n";
 	}
+}
+
+ostream& operator<<(ostream& ostr, const ArmedEnemy &rhs)
+{
+	ostr << "Armed Enemy ( Hit Points = " << rhs.hit_points
+		<< " Amoo = " << rhs.ammo_level << " )";
+	return ostr;
 }

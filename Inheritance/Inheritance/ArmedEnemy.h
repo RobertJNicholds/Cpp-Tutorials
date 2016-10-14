@@ -11,6 +11,9 @@ public:
 	virtual ~ArmedEnemy();
 	virtual void set_score(const int new_score);
 	virtual void shoot();
+
+	friend ostream& operator<<(ostream& ostr, const ArmedEnemy& rhs);
+	
 protected:
 	int ammo_level;
 };
