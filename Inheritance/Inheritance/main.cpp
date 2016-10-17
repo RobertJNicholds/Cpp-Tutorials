@@ -3,6 +3,7 @@
 #include "Boss.h"
 #include "BinaryTree.h"
 #include "Matrix.h"
+#include "ComplexNumber.h"
 #include "Vector3.h"
 #include "stack.h"
 
@@ -113,7 +114,30 @@ int main(void) {
 	Matrix<int> test_mat1;
 	Matrix<int> test_mat2;
 
+	for (int i = 0; i < test_mat1.default_x; ++i)
+	{
+		for (int j = 0; j < test_mat1.default_y; ++j)
+		{
+			test_mat1.set_element(i, j, 5);
+		}
+	}
+
+	for (int i = 0; i < test_mat2.default_x; ++i)
+	{
+		for (int j = 0; j < test_mat2.default_y; ++j)
+		{
+			test_mat2.set_element(i, j, 5);
+		}
+	}
+
 	test_mat1 = test_mat1 + test_mat2;
+	test_mat1 = test_mat1 - test_mat2;
+
+	ComplexNumber C1(5, 2);
+	ComplexNumber C2(10, 6);
+
+	cout << C2 - C1 << endl;
+	
 
 	delete ae;
 	ae = NULL;
