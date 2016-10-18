@@ -17,7 +17,6 @@ public:
 
 	T value;
 	Comparable* left;
-	Comparable* right;
-	
+	Comparable* right;	
 };
 

@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 #include <random>
+#include <queue>
+#include <stack>
 
 using namespace std;
 using std::vector;
@@ -47,12 +49,32 @@ int main() {
 	cout << "new size of enemies = " << enemies->size() << "\n";
 
 	vector<ArmedEnemy> armed_enemies(10);
+	queue<ArmedEnemy> qarmed_enemies;
+	stack<ArmedEnemy> sarmed_enemies;
+
+	qarmed_enemies.push(ArmedEnemy(5, 5));
+	qarmed_enemies.push(ArmedEnemy(5, 1));
+
+	qarmed_enemies.pop();
+
+	sarmed_enemies.push(ArmedEnemy(5, 5));
+	sarmed_enemies.push(ArmedEnemy(6, 1));
+	sarmed_enemies.pop();
+
+	for (int i = 0; i < sarmed_enemies.size(); ++i)
+	{
+		cout << sarmed_enemies.top().get_ammo() << endl;		
+	}
+
+	for (int i = 0; i < qarmed_enemies.size(); ++i)
+	{
+		cout << qarmed_enemies.back().get_ammo() << endl;
+		qarmed_enemies.pop();
+	}
 
 	for (vector<ArmedEnemy>::iterator it = armed_enemies.begin(); it != armed_enemies.end(); ++it)
 	{
-		it->set_score(rand() % 20);
-		
-		//cout << it->get_ammo() << endl;
+		it->set_score(rand() % 20);		
 	}
 
 	auto engine = default_random_engine{};

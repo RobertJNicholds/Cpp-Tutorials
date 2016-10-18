@@ -1,4 +1,5 @@
 #pragma once
+
 template <typename T>
 class Matrix
 {
@@ -13,10 +14,17 @@ public:
 	// constant elements
 	static const int default_x = 3;
 	static const int default_y = 3;
+
+	T** get_cells() const { return cells; } 
 		
 	Matrix<T>& operator=(const Matrix<T>& rhs);
 	Matrix<T>& operator+(const Matrix<T> &rhs);
 	Matrix<T>& operator-(const Matrix<T> &rhs);
+	Matrix<T>& operator*(const Matrix<T> &rhs);	
+	Matrix<T>& operator*(const T& scalar);	
+
+	template <typename E>
+	friend ostream& operator<<(ostream& ostr, const Matrix<E> &mat);
 
 protected:
 	T** cells;
@@ -118,4 +126,41 @@ Matrix<T>& Matrix<T>::operator-(const Matrix<T> &rhs)
 	}
 
 	return *this;
+}
+
+template <typename T>
+Matrix<T>& Matrix<T>::operator*(const Matrix<T> &rhs)
+{
+
+}
+
+template <typename T>
+Matrix<T>& Matrix<T>::operator*(const T& scalar)
+{
+	for (int x = 0; x < x_size; ++x)
+	{
+		for (int y = 0; y < y_size; ++y)
+		{
+			set_element(x, y, cells[x][y] * scalar);
+		}
+	}
+
+	return *this;
+}
+
+template <typename E>
+ostream& operator<<(ostream& ostr, const Matrix<E> &mat)
+{
+	for (int x = 0; x < mat.x_size; ++x)
+	{
+		ostr << "[ ";
+		for (int y = 0; y < mat.y_size; ++y)
+		{
+			ostr << " " << mat.cells[x][y] << ", ";
+		}
+		ostr << " ]";
+		ostr << "\n";
+	}
+
+	return ostr;
 }

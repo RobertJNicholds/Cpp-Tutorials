@@ -1,6 +1,7 @@
 #pragma once
 #include <math.h>
 #include <iostream>
+#include "Matrix.h"
 
 template <typename T>
 class Vector3
@@ -16,6 +17,8 @@ public:
 	inline Vector3<T> operator+(const Vector3<T>& rhs) const;
 	inline void operator=(const Vector3<T>& rhs);
 	inline Vector3<T> operator*(T scalar) const;
+	template <typename E>
+	inline Vector3<E>& operator*(const Matrix<E> &rhs);
 	inline bool operator==(const Vector3<T> &rhs);
 
 	template <typename E>
@@ -120,7 +123,13 @@ ostream& operator<<(ostream& ostr, const Vector3<E> &vec)
 	return ostr;
 }
 
-
-
-
-
+template<typename T>
+template<typename E>
+inline Vector3<E>& Vector3<T>::operator*(const Matrix<E>& rhs)
+{
+	value1 = rhs.get_cells()[0][0] * value1 + rhs.get_cells()[1][0] * value2 + rhs.get_cells()[2][0] * value3;
+	value2 = rhs.get_cells()[0][1] * value1 + rhs.get_cells()[1][1] * value2 + rhs.get_cells()[2][1] * value3;
+	value3 = rhs.get_cells()[0][2] * value1 + rhs.get_cells()[1][2] * value2 + rhs.get_cells()[2][2] * value3;
+	
+	return *this;
+}

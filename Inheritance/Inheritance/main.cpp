@@ -20,7 +20,7 @@ void decreaseHitPoints(Enemy& enemy)
 
 int main(void) {
 
-	ArmedEnemy* ae = new ArmedEnemy(2, 5);
+	/*ArmedEnemy* ae = new ArmedEnemy(2, 5);
 	ae->set_hit_points(3);
 	cout << "hit points = " << ae->get_hit_points() << "\n";
 
@@ -50,9 +50,9 @@ int main(void) {
 
 	ae->shoot();
 
-	some_function(*ae);
+	some_function(*ae);*/
 
-	BinaryTree<char> char_tree;
+	/*BinaryTree<char> char_tree;
 	
 	char_tree.insert_value('e');
 	char_tree.insert_value('d');
@@ -87,7 +87,7 @@ int main(void) {
 	cout << "Value stored in Vector3_tree are " << endl;
 	vector3_tree.print_tree();
 	vector3_tree.destroy_tree();
-	cout << endl;
+	cout << endl;*/
 
 	Vector3<int> vec1(1, 1, 1);
 	Vector3<int> vec2(2, 3, 4);	
@@ -133,15 +133,19 @@ int main(void) {
 	test_mat1 = test_mat1 + test_mat2;
 	test_mat1 = test_mat1 - test_mat2;
 
+	Vector3<int> test_vec = vec1 * test_mat1;
+
+	cout << test_mat1;
+
 	ComplexNumber C1(5, 2);
 	ComplexNumber C2(10, 6);
 
 	cout << C2 - C1 << endl;
 	
 
-	delete ae;
+	/*delete ae;
 	ae = NULL;
-
+*/
 	int exit;
 	cin >> exit;
 
